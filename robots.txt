@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-
-Sitemap: https://a-poplas.github.io/sitemap.xml
