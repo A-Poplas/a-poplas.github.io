@@ -15,6 +15,5 @@ url: https://a-poplas.github.io
 twitter_username: a_poplas
 github_username: a_poplas
 theme: beautiful-jekyll-theme
-#theme: minima
 plugins:
 - jekyll-feed
