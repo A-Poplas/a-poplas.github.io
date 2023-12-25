@@ -29,6 +29,7 @@ github_username:  a_poplas
 
 # Build settings
 theme: beautiful-jekyll-theme
+#theme: minima
 plugins:
   - jekyll-feed
 
