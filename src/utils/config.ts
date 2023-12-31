@@ -67,6 +67,57 @@ export interface AnalyticsConfig {
   };
 }
 
+export interface UIConfig{
+  theme: string;
+  classes: {};
+  tokens: {
+    default: {
+      fonts: {
+        sans: string;
+        serif: string;
+        heading: string;
+      };
+      colors: {
+        default: string;
+        heading: string;
+        muted: string;
+        bgPage: string;
+        primary: string;
+        secondary: string;
+        accent: string;
+        info: string;
+        success: string;
+        warning: string;
+        error: string;
+        link: string;
+        linkActive: string;
+      };
+    };
+    dark: {
+      fonts: {
+        sans: string;
+        serif: string;
+        heading: string;
+      };
+      colors: {
+        default: string;
+        heading: string;
+        muted: string;
+        bgPage: string;
+        primary: string;
+        secondary: string;
+        accent: string;
+        info: string;
+        success: string;
+        warning: string;
+        error: string;
+        link: string;
+        linkActive: string;
+      };
+    };
+  };
+}
+
 const config = yaml.load(fs.readFileSync('src/config.yaml', 'utf8')) as {
   site?: SiteConfig;
   metadata?: MetaDataConfig;
@@ -74,7 +125,7 @@ const config = yaml.load(fs.readFileSync('src/config.yaml', 'utf8')) as {
   apps?: {
     blog?: AppBlogConfig;
   };
-  ui?: unknown;
+  ui?: UIConfig;
   analytics?: unknown;
 };
 
@@ -180,7 +231,7 @@ const getUI = () => {
     tokens: {},
   };
 
-  return merge({}, _default, config?.ui ?? {});
+  return merge({}, _default, config?.ui ?? {}) as UIConfig;
 };
 
 const getAnalytics = () => {

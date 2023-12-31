@@ -9,8 +9,6 @@ import { getHomePermalink } from "~/utils/permalinks";
 import { trimSlash, getAsset } from "~/utils/permalinks";
 import type { CallToAction } from "~/types";
 
-import { SITE } from '~/utils/config';
-
 interface Link {
   text?: string;
   href?: string;
@@ -34,7 +32,6 @@ export interface Props {
   showToggleTheme?: boolean;
   showRssFeed?: boolean;
   position?: string;
-  socialLinks: Array<Link>;
 }
 
 const {
@@ -47,7 +44,6 @@ const {
   showToggleTheme = false,
   showRssFeed = false,
   position = "center",
-  socialLinks = [],
 } = Astro.props;
 
 const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
@@ -62,24 +58,24 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
   {...id ? { id } : {}}
 >
   <div class="absolute inset-0"></div>
-  <div class:list={["relative text-default py-3 px-3 lg:px-6 mx-auto w-full grid grid-cols-2 lg:grid-cols-3",{"max-w-7xl": !isFullWidth,},]}>
-      <nav class="items-center justify-between flex-col lg:w-auto hidden flex text-default overflow-y-auto overflow-x-hidden lg:overflow-y-visible lg:overflow-x-auto lg:mx-5" aria-label="Main navigation">
-        <ul class="flex flex-col lg:flex-row lg:self-center w-full lg:w-auto text-xl lg:text-[0.9375rem] tracking-[0.01rem] font-medium">
+  <div class:list={["relative text-default py-3 px-3 md:px-6 mx-auto w-full columns-3",{"max-w-7xl": !isFullWidth,},]}>
+
+      <nav class="items-center md:w-auto hidden md:flex text-default overflow-y-auto overflow-x-hidden md:overflow-y-visible md:overflow-x-auto md:mx-5" aria-label="Main navigation">
+        <ul class="flex flex-col md:flex-row md:self-center w-full md:w-auto text-xl md:text-[0.9375rem] tracking-[0.01rem] font-medium">
           {
             links.map(({ text, href, links }) => (
               <li class={links?.length ? "dropdown" : ""}>
                 {links?.length ? (
                   <>
                     <button class="hover:text-link dark:hover:text-white px-4 py-3 flex items-center">
-                      {text} <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 inline" />
+                      {text} <Icon name="tabler:chevron-down" class="w-3.5 h-3.5 ml-0.5 rtl:ml-0 rtl:mr-0.5 hidden md:inline" />
                     </button>
-                    <!-- FIX CLICKABILITY -->
-                    <ul class="dropdown-menu lg:backdrop-blur-lg dark:lg:bg-dark rounded lg:absolute pl-4 lg:pl-0 hidden font-medium lg:bg-white/90 lg:min-w-[200px] drop-shadow-xl">
+                    <ul class="dropdown-menu md:backdrop-blur-md dark:md:bg-dark rounded md:absolute pl-4 md:pl-0 md:hidden font-medium md:bg-white/90 md:min-w-[200px] drop-shadow-xl">
                       {links.map(({ text: text2, href: href2 }) => (
                         <li>
                           <a
                             class:list={[
-                              "first:rounded-t last:rounded-b lg:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap",
+                              "first:rounded-t last:rounded-b md:hover:bg-gray-100 hover:text-link dark:hover:text-white dark:hover:bg-gray-700 py-2 px-5 block whitespace-no-wrap",
                               { "aw-link-active" : href2 === currentPath}
                             ]}
                             href={href2}
@@ -105,69 +101,22 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
             ))
           }
         </ul>
-        <!--<div class="absolute bottom-0 my-auto">-->
-        {
-          socialLinks?.length ? (
-            <ul class="flex lg:order-1 -ml-2 lg:ml-4 mb-0 rtl:ml-0 rtl:-mr-2 rtl:lg:ml-0 rtl:lg:mr-4 sm:hidden">
-              {socialLinks.map(({ ariaLabel, href, text, icon }) => (
-                <li>
-                  <a
-                    class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                    aria-label={ariaLabel}
-                    href={href}
-                  >
-                    {icon && <Icon name={icon} class="w-8 h-8" />}
-                    <Fragment set:html={text} />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          ) : (
-            ''
-          )
-        }
-        <!--</div>-->
       </nav>
 
-      <div class="flex flex-row lg:justify-center">
-        <a class="flex items-center" href={getHomePermalink()}>
-          <Logo />
-        </a>
-        <!-- Remove -->
-        {showToggleTheme && <ToggleTheme iconClass="w-6 h-6 lg:w-5 lg:h-5 lg:inline-block" />}
+    <div>
+      <a class="" href={getHomePermalink()}>
+        <Logo />
+      </a>
+    </div>
+
+    <div>
+      <div class="w-auto">
+        <a>Test</a>
+        <a>Test 1</a>
       </div>
-
-
-      <div class="flex items-center justify-self-end">
-        <div class="w-auto items-center">
-            {
-              socialLinks?.length ? (
-                <ul class="sm:flex lg:order-1 -ml-2 lg:ml-4 mb-0 rtl:ml-0 rtl:-mr-2 rtl:lg:ml-0 rtl:lg:mr-4 hidden">
-                  {socialLinks.map(({ ariaLabel, href, text, icon }) => (
-                    <li>
-                      <a
-                        class="text-muted dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
-                        aria-label={ariaLabel}
-                        href={href}
-                      >
-                        {icon && <Icon name={icon} class="w-5 h-5" />}
-                        <Fragment set:html={text} />
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              ) : (
-                ''
-              )
-            }
-          <!--
-          <a>Test</a>
-          <a>Test 1</a>
-          -->
-        </div>
-        <div class="lg:hidden">
-          <ToggleMenu />
-        </div>
+      <div class="md:hidden">
+        <ToggleMenu />
+      </div>
 
   </div>
     <!--<div class:list={[ { "ml-auto rtl:ml-0 rtl:mr-auto": position === "left" }, "hidden md:self-center flex md:flex items-center md:mb-0 fixed w-full md:w-auto md:static justify-end left-0 rtl:left-auto rtl:right-0 bottom-0 p-3 md:p-0", ]}>
