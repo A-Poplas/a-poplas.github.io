@@ -63,7 +63,7 @@ const currentPath = `/${trimSlash(new URL(Astro.url).pathname)}`
 >
   <div class="absolute inset-0"></div>
   <div class:list={["relative text-default py-3 px-3 lg:px-6 mx-auto w-full grid grid-cols-2 lg:grid-cols-3",{"max-w-7xl": !isFullWidth,},]}>
-      <nav class="items-center justify-between flex-col lg:w-auto hidden flex text-default overflow-y-auto overflow-x-hidden lg:overflow-y-visible lg:overflow-x-auto lg:mx-5" aria-label="Main navigation">
+      <nav class="items-center justify-self-start lg:w-auto hidden lg:flex text-default overflow-y-auto overflow-x-hidden lg:overflow-y-visible lg:overflow-x-auto lg:mx-5" aria-label="Main navigation">
         <ul class="flex flex-col lg:flex-row lg:self-center w-full lg:w-auto text-xl lg:text-[0.9375rem] tracking-[0.01rem] font-medium">
           {
             links.map(({ text, href, links }) => (
