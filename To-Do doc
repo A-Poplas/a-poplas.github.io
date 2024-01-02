@@ -1,6 +1,7 @@
 
 General:
-    - Colors in CustomStyles.astro
+    - Title & Favicon
+    - Colors in CustomStyles.astro  - Yellow / Purple for accent/primary - muted colors (white/gray/black with accent color)
     [Done] - Light theme only 
 
 Landing:
@@ -9,7 +10,7 @@ Landing:
         - add short presentation
         - recent projects (or highlighted projects)
 Header (Header.astro): 
-    - Visual fixes - alignment to middle
+    [Done] - Visual fixes - alignment to middle
     - Mobile fix (drop down for Other)
     - Social icons
     - for GFX, UI/UX add links in a way, so that certain Blog categories are shown (GFX/UX_UI etc.)
