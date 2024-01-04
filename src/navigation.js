@@ -1,14 +1,26 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
+export const socialIconsData = {
+  socialLinks: [
+    { ariaLabel: 'Mail', icon: 'tabler:mail', href: 'mailto:andi.poplas@gmail.com' },
+    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/andy-poplas/', target:"_blank"},
+    /*{ ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },*/
+    /*{ ariaLabel: 'Soundcloud', icon: 'tabler:brand-soundcloud', href: '#' },*/
+    { ariaLabel: 'Behance', icon: 'tabler:brand-behance', href: '#test123', target:"_blank"},
+    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#', target:"_blank"},
+    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/A-Poplas', target:"_blank"},
+  ]
+}
+
 export const headerData = {
   links: [
     {
       text: 'GFX',
-      href: '#',
+      href: getPermalink('category/gfx'),
     },
     {
       text: 'UI/UX',
-      href: '#',
+      href: getPermalink('category/uiux'),
     },
     {
       text: 'Other',
@@ -20,14 +32,6 @@ export const headerData = {
       ],
     },
   ],
-  socialLinks: [
-    { ariaLabel: 'Mail', icon: 'tabler:mail', href: 'mailto:andi.poplas@gmail.com' },
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: '#' },
-    { ariaLabel: 'Behance', icon: 'tabler:brand-behance', href: '#' },
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/A-Poplas' },
-  ]
-  //actions: [{ text: 'Download', href: 'https://github.com/onwidget/astrowind', target: '_blank' }],
 };
 
 export const footerData = {
@@ -82,17 +86,8 @@ export const footerData = {
     { text: 'Terms', href: getPermalink('/terms') },
     { text: 'Privacy Policy', href: getPermalink('/privacy') },
   ],
-  socialLinks: [
-    { ariaLabel: 'Mail', icon: 'tabler:mail', href: 'mailto:andi.poplas@gmail.com' },
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: '#' },
-    { ariaLabel: 'Behance', icon: 'tabler:brand-behance', href: '#' },
-    /*{ ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },*/
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#' },
-    /*{ ariaLabel: 'Soundcloud', icon: 'tabler:brand-soundcloud', href: '#' },*/
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/A-Poplas' },
-  ],
   footNote: `
-    Made with <a class="text-blue-600 hover:underline dark:text-gray-200" href="#">Astro</a> and <a class="text-blue-600 hover:underline dark:text-gray-200" href="#">AstroWind</a> template · All rights reserved.
+    Made with <a class="text-primary hover:underline dark:text-gray-200" href="https://astro.build/">Astro</a> and <a class="text-primary hover:underline dark:text-gray-200" href="https://github.com/onwidget/astrowind">AstroWind</a> template · All rights reserved.
   `,
 };
 

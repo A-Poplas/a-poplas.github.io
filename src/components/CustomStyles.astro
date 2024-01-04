@@ -21,27 +21,28 @@ import '@fontsource-variable/inter';
 
 <style is:inline is:global>
   :root {
-    --aw-font-sans: 'Inter Variable';
+    --aw-font-sans: 'Outfit'; /* Inter Variable */
     --aw-font-serif: var(--aw-font-sans);
     --aw-font-heading: var(--aw-font-sans);
 
-    --aw-color-primary: rgb(30 64 175);
-    --aw-color-secondary: rgb(30 58 138);
-    --aw-color-accent: rgb(109 40 217);
+    --aw-color-primary: rgb(231, 191, 57);  /* 30 64 175 */ /* yellow: 235 201 24 */ /*Black 41, 40, 31 */
+    --aw-color-secondary: rgb(199, 165, 52); /* 30 58 138 */                                                      /* YELLOW: 255, 200, 87 */
+    --aw-color-accent: rgb(102, 16, 242);                                                                         /* PURPLE: 102, 16, 242 */
 
     --aw-color-text-heading: rgb(0 0 0); 
-    --aw-color-text-default: rgb(16 16 16);
-    --aw-color-text-muted: rgb(16 16 16 / 66%);
+    --aw-color-text-default: rgb(25, 25, 25);
+    --aw-color-text-muted: rgba(25, 25, 25, 0.6);
     --aw-color-bg-page: rgb(255 255 255);
 
-    --aw-color-bg-page-dark: rgb(3 6 32);
+    --aw-color-bg-page-dark: rgb(51, 50, 47);
+    --aw-color-bg-secondary-white: rgb(252,252,255);
 
     ::selection {background-color: lavender;}
 
   }
 
   .dark {
-    --aw-font-sans: 'Inter Variable';
+    --aw-font-sans: 'Outfit';
     --aw-font-serif: var(--aw-font-sans);
     --aw-font-heading: var(--aw-font-sans);
 
@@ -56,8 +57,5 @@ import '@fontsource-variable/inter';
 
     ::selection {background-color: black; color: snow}
 
-  }
-  .btn-primary, .btn-secondary{
-    border-radius: 0.5rem;
   }
 </style>
