@@ -2,13 +2,13 @@ import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
 export const socialIconsData = {
   socialLinks: [
-    { ariaLabel: 'Mail', icon: 'tabler:mail', href: 'mailto:andi.poplas@gmail.com' },
-    { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/andy-poplas/', target:"_blank"},
+    { text: 'Mail', ariaLabel: 'Mail', icon: 'tabler:mail', href: 'mailto:andi.poplas@gmail.com' },
+    { text: 'LinkedIn', ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/andy-poplas/', target:"_blank"},
     /*{ ariaLabel: 'X', icon: 'tabler:brand-x', href: '#' },*/
     /*{ ariaLabel: 'Soundcloud', icon: 'tabler:brand-soundcloud', href: '#' },*/
-    { ariaLabel: 'Behance', icon: 'tabler:brand-behance', href: '#test123', target:"_blank"},
-    { ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#', target:"_blank"},
-    { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/A-Poplas', target:"_blank"},
+    { text: 'Behance', ariaLabel: 'Behance', icon: 'tabler:brand-behance', href: '#test123', target:"_blank"},
+    { text: 'Instagram', ariaLabel: 'Instagram', icon: 'tabler:brand-instagram', href: '#', target:"_blank"},
+    { text: 'GitHub', ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/A-Poplas', target:"_blank"},
   ]
 }
 
@@ -20,7 +20,7 @@ export const headerData = {
     },
     {
       text: 'UI/UX',
-      href: getPermalink('category/uiux'),
+      href: getPermalink('category/ui-ux'),
     },
     {
       text: 'Other',

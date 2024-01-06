@@ -23,7 +23,7 @@ export interface Props {
 <div>
 {
     socialLinks?.length ? (
-      <ul class="flex mb-4 md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4 justify-center">
+      <ul class="flex md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4 justify-center">
         {socialLinks.map(({ ariaLabel, href, text, icon, target }) => (
           <li>
             <a
@@ -33,11 +33,11 @@ export interface Props {
               target={target}
             >
               {icon && <Icon name={icon} class={iconClass} />}   
-              <Fragment set:html={text} />
+              <span class="text-xs hidden"><Fragment set:html={text} /></span>
             </a>
           </li>
         ))}
-      </ul>
+      </ul> /* Remove "hidden" from span to show icon labels */
     ) : (
       ''
     )

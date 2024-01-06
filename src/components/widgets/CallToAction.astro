@@ -1,8 +1,10 @@
 ---
 import WidgetWrapper from '../ui/WidgetWrapper.astro';
 import type { CallToAction, Widget } from '~/types';
+import { twMerge } from 'tailwind-merge';
 import Headline from '~/components/ui/Headline.astro';
 import Button from "~/components/ui/Button.astro"
+//import type { Code } from 'astro:components';
 
 interface Props extends Widget {
   title?: string;
@@ -45,7 +47,7 @@ const {
           {Array.isArray(actions) ? (
             actions.map((action) => (
               <div class="flex w-full sm:w-auto">
-                <Button {...(action || {})} class="w-full sm:mb-0" />
+                <Button {...(action || {})} class={twMerge("w-full sm:mb-0",action.buttonClass)} iconClass={action.iconClass}/>
               </div>
             ))
           ) : (

@@ -3,9 +3,10 @@ import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
 import { blogCategoryRobots, getStaticPathsBlogCategory } from '~/utils/blog';
 
 import Layout from '~/layouts/PageLayout.astro';
-import BlogList from '~/components/blog/List.astro';
+import BlogListCustom from '~/components/blog/ListCustom.astro';
 import Headline from '~/components/blog/Headline.astro';
 import Pagination from '~/components/blog/Pagination.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
 
 export const prerender = true;
 
@@ -17,10 +18,10 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths> & { category: string
 
 const { page, category } = Astro.props as Props;
 
-const currentPage = page.currentPage ?? 1;
+//const currentPage = page.currentPage ?? 1;
 
 const metadata = {
-  title: `'${category}'`, /* `Category '${category}' ${currentPage > 1 ? ` — Page ${currentPage}` : ''}` */
+  title: `Portfolio - ${category.toUpperCase()}`,
   robots: {
     index: blogCategoryRobots?.index,
     follow: blogCategoryRobots?.follow,
@@ -29,11 +30,35 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
-    <h1>TESTING TEXT</h1>
-    <Headline><span class="capitalize">{category.replaceAll('-', ' ')}</span></Headline>
-    <div>Description + call to action for specific categories (gfx, ui/ux, 3D etc)</div>
-    <BlogList posts={page.data} />
-    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+  <section class="px-4 md:px-6 pt-12 sm:pt-16 lg:pt-20 mx-auto max-w-4xl">
+    <Headline><span class="uppercase">{category.replaceAll('-', ' ')}</span></Headline>
+      {(metadata.title === "gfx" || metadata.title === "uxui") &&
+      <CallToAction actions={[
+        {
+          variant: 'primary',
+          text: 'More on Behance',
+          href: 'https://github.com/onwidget/astrowind',
+          target: '_blank',
+          icon: 'tabler:brand-behance',
+          buttonClass: 'flex-row-reverse',
+          iconClass: 'mr-1 ml-0',
+        }
+      ]}
+      classes={{
+        container: "pt-5 md:pt-5 lg:pt-5",
+      }}
+    >
+      <Fragment slot="subtitle">
+        Feel free to also check out these projects on Behance, which may contain updated projects.
+      </Fragment>
+      </CallToAction>
+      }
+    
   </section>
+  <div class="flex flex-col mx-auto lg:justify-between lg:flex-row max-w-7xl px-4 md:px-6 py-12 md:py-16 lg:py-20 text-default">
+    <div class="grid gap-2 row-gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 -mb-6">
+      <BlogListCustom posts={page.data} />
+    </div>
+    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+  </div>
 </Layout>

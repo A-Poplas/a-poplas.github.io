@@ -10,7 +10,7 @@ site:
 metadata:
   title:
     default: Andy Poplas' Portfolio
-    template: '%s — AstroWind'
+    template: '%s'
   description: "Interdisciplinary Designer - Graphic Design, UI/UX, Web & More"
   robots:
     index: true
@@ -66,12 +66,12 @@ analytics:
       id: null # or "G-XXXXXXXXXX"
 
 ui:
-  theme: 'light' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
+  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
 
   tokens:
     default:
       fonts:
-        sans: InterVariable
+        sans: UrbanistVariable
         serif: var(--ph-font-sans)
         heading: var(--ph-font-sans)
       colors:

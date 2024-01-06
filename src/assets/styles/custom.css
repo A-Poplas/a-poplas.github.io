@@ -11,6 +11,9 @@
 .color-white{
     color: rgba(255,255,255,1)
 }
+.color-black{
+    color: var(--aw-color-text-heading);
+}
 .color-text-default{
     color: var(--aw-color-text-default);
 }
@@ -26,8 +29,11 @@
 .bg-color-secondary-white{
     background-color: var(--aw-color-bg-secondary-white);
 }
+.bg-color-grayishOrange{
+    background-color: rgba(246, 246, 243, 1);
+}
 /* Buttons */
-.btn-primary,.btn-secondary{
+.btn-primary,.btn-secondary,.btn-tertiary{
     border-radius: 0.5rem;
 }
 

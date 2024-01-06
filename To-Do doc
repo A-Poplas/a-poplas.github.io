@@ -2,21 +2,21 @@
 General:
     - Title & Favicon
     - Colors in CustomStyles.astro  - Yellow / Purple for accent/primary - muted colors (white/gray/black with accent color)
-    [Done] - Light theme only 
+    [Rejected] - Light theme only 
 
 Landing:
     - Edit landing page
-        - add Animation 
+        [done] - add Animation 
         - add short presentation
         - recent projects (or highlighted projects)
 Header (Header.astro): 
     [Done] - Visual fixes - alignment to middle
-    - Mobile fix (drop down for Other)
-    - Social icons
+    [done] - Mobile fix (drop down for Other)
+    [done] - Social icons
     - for GFX, UI/UX add links in a way, so that certain Blog categories are shown (GFX/UX_UI etc.)
 
 Blog: 
     - Edit ListItem.astro (src\components\blog\) to show posts in desired way.
 
 Footer: 
-    - Edit footer - remove nav links, maybe add CV link and social icons
+    [done] - Edit footer - remove nav links, maybe add CV link and social icons

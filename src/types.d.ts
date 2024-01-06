@@ -42,6 +42,9 @@ export interface Post {
 
   /**  */
   readingTime?: number;
+
+  url?: string;
+  urlIcon?: string;
 }
 
 export interface MetaData {

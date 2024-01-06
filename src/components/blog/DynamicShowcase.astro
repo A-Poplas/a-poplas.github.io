@@ -1,0 +1,47 @@
+---
+import type { Post } from '~/types';
+
+import Image from '~/components/common/Image.astro';
+
+import { findImage } from '~/utils/images';
+import Button from '../ui/Button.astro';
+
+
+export interface Props {
+  post: Post;
+}
+
+const { post } = Astro.props;
+const image = (await findImage(post.image));
+---
+
+<article class="dynamicPost grid grid-cols-1 mb-6 transition rounded shadow-lg md:h-64 overflow-hidden">
+    <div class="pictureLayer grid w-full h-full overflow-hidden row-start-1 col-start-1 z-10">
+        {
+            image && (
+                <Image
+                  src={image}
+                  class="w-full md:h-full rounded shadow-lg bg-gray-400 dark:bg-slate-700"
+                  widths={[400, 900]}
+                  width={400}
+                  sizes="(max-width: 900px) 400px, 900px"
+                  alt={post.title}
+                  aspectRatio="16:9"
+                  layout="cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+            )
+          }
+    </div>
+    <div class="pictureOverlay grid grid-cols-1 p-4 w-full h-full row-start-1 col-start-1 z-20 overflow-hidden" style="background-color:rgba(255,255,255,0.8); background-blend-mode:lighten; backdrop-filter:blur(6px);-webkit-backdrop-filter: blur(6px);">
+        <div>
+            <h3 class="font-bold leading-tight dark:color-black">
+              {post.title}
+            </h3>
+            <h4 class="dark:color-black-60">{post.category}</h4>
+        </div>
+        <p class="text-muted dark:text-slate-700">{post.excerpt}</p>
+        <Button variant="primary" class="w-fit mx-auto h-10 leading-10 mb-0 self-end flex-row-reverse" icon={post.urlIcon} href={post.url} iconClass="mr-1 ml-0">Nekaj?</Button>
+    </div>
+</article>
