@@ -1,15 +1,14 @@
 ---
 publishDate: 2024-01-01T00:00:00Z
-title: 'Test GFX post'
-excerpt: A small excerpt for testing
+title: 'MUT Visual Identity'
+excerpt: Visual Identity designed for inter-university sports' tournament.
 category: gfx
-image: https://images.unsplash.com/photo-1561069934-eee225952461?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80
+image: ~/assets/images/gfx/MUT_cover.png
 tags:
-  - landing-pages
-  - front-end
-  - resources
-metadata:
-  canonical: https://astrowind.vercel.app/landing
-url: https://www.google.com
+  - visual-identity
+  - graphic-design
+  - brand-identity
+url: https://www.behance.net/gallery/186424917/MUT-Visual-Identity
 urlIcon: tabler:brand-behance
+buttonText: Check out the project
 ---

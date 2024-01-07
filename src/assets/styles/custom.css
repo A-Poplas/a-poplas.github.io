@@ -14,8 +14,14 @@
 .color-black{
     color: var(--aw-color-text-heading);
 }
+.color-black-60{
+    color: rgba(25, 25, 25, 0.6);
+}
 .color-text-default{
     color: var(--aw-color-text-default);
+}
+.color-text-muted{
+    color:#757575;
 }
 .bg-color-primary{
     background-color: var(--aw-color-primary);
@@ -31,6 +37,16 @@
 }
 .bg-color-grayishOrange{
     background-color: rgba(246, 246, 243, 1);
+}
+.bg-color-white-10{
+    background-color: rgba(255,255,255,0.1);
+}
+.border-gray-20{
+    border: 1px solid rgba(107,114,128,0.2);
+}
+/* Text */
+.text-handwritten{
+    font-family: 'Caveat Variable', sans-serif;;
 }
 /* Buttons */
 .btn-primary,.btn-secondary,.btn-tertiary{
@@ -56,8 +72,18 @@
 .focus\:ring-gray-200:focus{
     --tw-ring-color: rgba(107,114,128,0.2);
 }
-
-
+:is(:where(.dark) .dark\:color-black){
+    color: rgb(25, 25, 25);
+}
+:is(:where(.dark) .dark\:color-black-60){
+    color: rgba(25, 25, 25, 0.6);
+}
+:is(:where(.dark) .dark\:bg-color-white-10){
+    background-color: rgba(255,255,255,0.1);
+}
+:is(:where(.dark) .dark\:border-gray-20){
+    border: 1px solid rgba(107,114,128,0.2);
+}
 
 footer>div:first-child{
     background-color: var(--aw-color-bg-secondary-white);

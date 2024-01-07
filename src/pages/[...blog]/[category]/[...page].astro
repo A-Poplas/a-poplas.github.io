@@ -31,28 +31,32 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <section class="px-4 md:px-6 pt-12 sm:pt-16 lg:pt-20 mx-auto max-w-4xl">
-    <Headline><span class="uppercase">{category.replaceAll('-', ' ')}</span></Headline>
-      {(category === "gfx" || category === "uxui") &&
-      <CallToAction actions={[
-        {
-          variant: 'primary',
-          text: 'More on Behance',
-          href: 'https://github.com/onwidget/astrowind',
-          target: '_blank',
-          icon: 'tabler:brand-behance',
-          buttonClass: 'flex-row-reverse',
-          iconClass: 'mr-1 ml-0',
-        }
-      ]}
-      classes={{
-        container: "pt-5 md:pt-5 lg:pt-5",
-      }}
-    >
-      <Fragment slot="subtitle">
-        Feel free to also check out these projects on Behance, which may contain updated projects.
-      </Fragment>
-      </CallToAction>
+    {category === "gfx" ? ( 
+      <Headline><span>Graphic Design</span></Headline>
+    ) : (
+      <Headline><span class="uppercase">{category.replaceAll('-', ' ')}</span></Headline>
+    )}
+    {(category === "gfx" || category === "ui-ux") &&
+    <CallToAction actions={[
+      {
+        variant: 'primary',
+        text: 'More on Behance',
+        href: 'https://github.com/onwidget/astrowind',
+        target: '_blank',
+        icon: 'tabler:brand-behance',
+        buttonClass: 'flex-row-reverse',
+        iconClass: 'mr-1 ml-0',
       }
+    ]}
+    classes={{
+      container: "pt-5 md:pt-5 lg:pt-5",
+    }}
+  >
+    <Fragment slot="subtitle">
+      Feel free to also check out these projects on Behance, which may contain even more projects.
+    </Fragment>
+    </CallToAction>
+    }
     
   </section>
   <div class="flex flex-col mx-auto lg:justify-between lg:flex-row max-w-7xl px-4 md:px-6 py-12 md:py-16 lg:py-20 text-default">

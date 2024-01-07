@@ -13,10 +13,14 @@ Header (Header.astro):
     [Done] - Visual fixes - alignment to middle
     [done] - Mobile fix (drop down for Other)
     [done] - Social icons
-    - for GFX, UI/UX add links in a way, so that certain Blog categories are shown (GFX/UX_UI etc.)
+    [done] - for GFX, UI/UX add links in a way, so that certain Blog categories are shown (GFX/UX_UI etc.)
 
 Blog: 
-    - Edit ListItem.astro (src\components\blog\) to show posts in desired way.
+    [done] - Edit ListItem.astro (src\components\blog\) to show posts in desired way.
 
 Footer: 
     [done] - Edit footer - remove nav links, maybe add CV link and social icons
+
+CV:
+    [done] - Temporarily add PDF as CV
+    - edit CV page and PDF accordingly (so they have somewhat same design). You can use established website elements

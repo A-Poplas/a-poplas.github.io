@@ -45,6 +45,7 @@ export interface Post {
 
   url?: string;
   urlIcon?: string;
+  buttonText?: string;
 }
 
 export interface MetaData {

@@ -34,14 +34,14 @@ const image = (await findImage(post.image));
             )
           }
     </div>
-    <div class="pictureOverlay grid grid-cols-1 p-4 w-full h-full row-start-1 col-start-1 z-20 overflow-hidden" style="background-color:rgba(255,255,255,0.8); background-blend-mode:lighten; backdrop-filter:blur(6px);-webkit-backdrop-filter: blur(6px);">
+    <div class="pictureOverlay grid grid-cols-1 p-4 w-full h-full row-start-1 col-start-1 z-20 overflow-hidden items-center" style="background-color:rgba(255,255,255,0.8); background-blend-mode:lighten; backdrop-filter:blur(6px);-webkit-backdrop-filter: blur(6px);">
         <div>
-            <h3 class="font-bold leading-tight dark:color-black">
+            <h3 class="text-xl font-bold leading-tight dark:color-black">
               {post.title}
             </h3>
-            <h4 class="dark:color-black-60">{post.category}</h4>
+            <h4 class="text-muted dark:text-slate-700">{post.category}</h4>
         </div>
-        <p class="text-muted dark:text-slate-700">{post.excerpt}</p>
-        <Button variant="primary" class="w-fit mx-auto h-10 leading-10 mb-0 self-end flex-row-reverse" icon={post.urlIcon} href={post.url} iconClass="mr-1 ml-0">Nekaj?</Button>
+        <p class="color-black">{post.excerpt}</p>
+        <Button variant="primary" class="w-fit mx-auto h-10 leading-10 mb-0 self-end flex-row-reverse" icon={post.urlIcon} href={post.url} iconClass="mr-1 ml-0">{post.buttonText}</Button>
     </div>
 </article>

@@ -10,9 +10,3 @@
     transition: opacity 0.5s;
     opacity: 0;
 }
-:is(:where(.dark) .dark\:color-black){
-    color: rgb(25, 25, 25);
-}
-:is(:where(.dark) .dark\:color-black-60){
-    color: rgba(25, 25, 25, 0.6);
-}

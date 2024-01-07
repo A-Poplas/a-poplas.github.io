@@ -27,7 +27,7 @@ export interface Props {
         {socialLinks.map(({ ariaLabel, href, text, icon, target }) => (
           <li>
             <a
-              class="color-text-default dark:text-gray-400 hover:bg-grayishOrange-100 dark:hover:bg-grayishOrange-10 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center"
+              class="color-text-default dark:text-gray-400 hover:bg-grayishOrange-100 dark:hover:bg-grayishOrange-10 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center" 
               aria-label={ariaLabel}
               href={href}
               target={target}
@@ -37,7 +37,7 @@ export interface Props {
             </a>
           </li>
         ))}
-      </ul> /* Remove "hidden" from span to show icon labels */
+      </ul> /* Remove "hidden" from span to show icon labels Default icon color:color-text-default */
     ) : (
       ''
     )
