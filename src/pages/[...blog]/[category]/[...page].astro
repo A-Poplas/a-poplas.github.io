@@ -5,7 +5,6 @@ import { blogCategoryRobots, getStaticPathsBlogCategory } from '~/utils/blog';
 import Layout from '~/layouts/PageLayout.astro';
 import BlogListCustom from '~/components/blog/ListCustom.astro';
 import Headline from '~/components/blog/Headline.astro';
-import Pagination from '~/components/blog/Pagination.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 export const prerender = true;
@@ -31,12 +30,12 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <section class="px-4 md:px-6 pt-12 sm:pt-16 lg:pt-20 mx-auto max-w-4xl">
-    {category === "gfx" ? ( 
+    {category === "graphic-design" ? ( 
       <Headline><span>Graphic Design</span></Headline>
     ) : (
       <Headline><span class="uppercase">{category.replaceAll('-', ' ')}</span></Headline>
     )}
-    {(category === "gfx" || category === "ui-ux") &&
+    {(category === "graphic-design" || category === "ui-ux") &&
     <CallToAction actions={[
       {
         variant: 'primary',
@@ -59,10 +58,11 @@ const metadata = {
     }
     
   </section>
-  <div class="flex flex-col mx-auto lg:justify-between lg:flex-row max-w-7xl px-4 md:px-6 py-12 md:py-16 lg:py-20 text-default">
-    <div class="grid gap-2 row-gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 -mb-6">
+  <!-- <div class="flex flex-col mx-auto lg:justify-between lg:flex-row max-w-7xl px-4 md:px-6 py-12 md:py-16 lg:py-20 text-default">
+    <div class="grid gap-2 row-gap-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 -mb-6">-->
       <BlogListCustom posts={page.data} />
-    </div>
+
+    <!-- </div>
     <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
-  </div>
+  </div>-->
 </Layout>

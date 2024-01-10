@@ -2,7 +2,7 @@
 publishDate: 2024-01-01T00:00:00Z
 title: 'MUT Visual Identity'
 excerpt: Visual Identity designed for inter-university sports' tournament.
-category: gfx
+category: graphic design
 image: ~/assets/images/gfx/MUT_cover.png
 tags:
   - visual-identity
