@@ -3,6 +3,7 @@ import { twMerge } from 'tailwind-merge';
 import type { ItemGrid } from '~/types';
 import Button from './Button.astro';
 import { Icon } from 'astro-icon/components';
+import IconAnimated from '~/components/common/IconAnimated.astro';
 
 const { items = [], columns, defaultIcon = '', classes = {} } = Astro.props as ItemGrid;
 
@@ -14,6 +15,7 @@ const {
   icon: defaultIconClass = 'text-primary',
   action: actionClass = '',
 } = classes;
+
 ---
 
 {
@@ -36,12 +38,19 @@ const {
         <div>
           <div class={twMerge('flex flex-row max-w-md', panelClass, itemClasses?.panel)}>
             <div class="flex justify-center">
-              {(icon || defaultIcon) && (
-                <Icon
-                  name={icon || defaultIcon}
-                  class={twMerge('w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2', defaultIconClass, itemClasses?.icon)}
-                />
-              )}
+                  
+
+                  {(icon==="dynamicSet-1") ? (
+                    <IconAnimated name="set-1"></IconAnimated>
+                    ) : (icon==="dynamicSet-2") ? (
+                      <IconAnimated name="set-2"></IconAnimated>
+                    ) : (icon || defaultIcon) && (
+                    <Icon
+                      name={icon || defaultIcon}
+                      class={twMerge('w-7 h-7 mr-2 rtl:mr-0 rtl:ml-2', defaultIconClass, itemClasses?.icon)}
+                    />
+                    )}
+              
             </div>
             <div class="mt-0.5">
               {title && <h3 class={twMerge('text-xl font-bold', titleClass, itemClasses?.title)}>{title}</h3>}

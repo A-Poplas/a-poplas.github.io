@@ -38,12 +38,12 @@ export const footerData = {
   links: [],
   secondaryLinks: [
     { text: 'CV', href: getPermalink('/cv') },
-    { text: 'Contact', href: getPermalink('/contact') },
+    //{ text: 'Contact', href: getPermalink('/contact') },
     /*{ text: 'Terms', href: getPermalink('/terms') },
     { text: 'Privacy Policy', href: getPermalink('/privacy') },*/
   ],
   footNote: `
-    Made with <a class="text-primary hover:underline dark:text-gray-200" href="https://astro.build/">Astro</a> and <a class="text-primary hover:underline dark:text-gray-200" href="https://github.com/onwidget/astrowind">AstroWind</a> template · All rights reserved.
+    Made with <a class="text-primary hover:underline" href="https://astro.build/">Astro</a> and <a class="text-primary hover:underline" href="https://github.com/onwidget/astrowind">AstroWind</a> template · All rights reserved.
   `,
 };
 

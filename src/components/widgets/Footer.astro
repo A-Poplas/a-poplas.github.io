@@ -1,7 +1,4 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { SITE } from '~/utils/config';
-import { getHomePermalink } from '~/utils/permalinks';
 import SocialIcons from '~/components/widgets/SocialIcons.astro';
 
 import { socialIconsData } from '~/navigation';
@@ -25,24 +22,24 @@ export interface Props {
   theme?: string;
 }
 
-const { secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astro.props;
+const { secondaryLinks = [], footNote = '', theme = 'light' } = Astro.props;
 ---
 
 <footer class:list={[{ dark: theme === 'dark' }, 'relative border-t not-prose']}>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 dark:text-slate-300">
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
     <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 py-8 md:py-12 items-center">
       <div class="col-span-12 lg:col-span-6">
           <SocialIcons {...socialIconsData} iconClass="lg:w-6 lg:h-6 w-8 h-8"></SocialIcons>
       </div>
         <div class="col-span-12 lg:col-span-6 px-5 lg:px-0">
           <h3 class="font-bold my-2">Contact me!</h3>
-          <p>I’m always open to inqueries, questions or anything else on my e-mail <a class="color-primary hover:underline dark:text-gray-200" href="mailto:andi.poplas@gmail.com">andi.poplas@gmail.com</a> or any of the social sites.</p>
+          <p class="text-muted">I’m always open to inqueries, questions or anything else on my e-mail <a class="color-primary hover:underline" href="mailto:andi.poplas@gmail.com">andi.poplas@gmail.com</a> or any of the social sites.</p>
           <div class="text-sm text-muted my-2">
             {
             secondaryLinks.map(({ text, href }) => (
               <a
-                class="text-muted hover:text-gray-700 dark:text-gray-400 hover:underline transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2" 
+                class="text-default hover:text-link dark:text-gray-400 hover:underline transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2" 
                 href={href}
                 set:html={text}
               />
@@ -52,7 +49,7 @@ const { secondaryLinks = [], links = [], footNote = '', theme = 'light' } = Astr
         </div>
     </div>
     <div class="flex items-center justify-center py-6 md:py-8">
-      <div class="text-sm mr-4 dark:text-slate-400">
+      <div class="text-sm mr-4 dark:text-muted">
         <Fragment set:html={footNote} />
       </div>
     </div>

@@ -2,77 +2,70 @@
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
 
 const metadata = {
   title: 'Contact',
 };
+
+// Import SendGrid package
+import sgMail from '@sendgrid/mail';
+
+// Set SendGrid API key from environment variable
+sgMail.setApiKey("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");
+
+// Define a handler function for form submission
+export async function onSubmit(event) {
+  // Get the form data from the event object
+  const { name, email, message } = event.form;
+
+  // Define the email message
+  const msg = {
+    to: 'andi.poplas@gmail.com', // Change this to your email address
+    from: 'andi.poplas@gmail.com', // Change this to your sender identity
+    subject: `New message from ${name}`,
+    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+  };
+
+  // Send the email using SendGrid
+  await sgMail.send(msg);
+
+  // Redirect the user to a thank you page
+  return {
+    statusCode: 302,
+    headers: {
+      Location: '/thank-you',
+    },
+  };
+}
 ---
 
 <Layout metadata={metadata}>
   <!-- HeroText Widget ******************* -->
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
+  <HeroText tagline="Contact" title="Want to get in touch?" />
 
   <ContactUs
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
+    title="Feel free to message me!"
+    subtitle="You can use the form below to leave a message, and you can also contact me on any social media I'm active on or contact me directly to my e-mail address."
     inputs={[
       {
         type: 'text',
         name: 'name',
-        label: 'Name',
+        label: 'Your name',
       },
       {
         type: 'email',
         name: 'email',
-        label: 'Email',
+        label: 'Your email',
       },
     ]}
     textarea={{
-      label: 'Message',
+      label: 'Your message',
     }}
     disclaimer={{
       label:
         'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
     }}
-    description="Our support team typically responds within 24 business hours."
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
-      },
-    ]}
+    button = "Contact Me"
   />
 </Layout>
