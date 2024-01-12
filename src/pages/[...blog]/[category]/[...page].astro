@@ -18,9 +18,15 @@ type Props = InferGetStaticPropsType<typeof getStaticPaths> & { category: string
 const { page, category } = Astro.props as Props;
 
 //const currentPage = page.currentPage ?? 1;
+let pageTitle;
+switch (category) {
+  case 'graphic-design': pageTitle = 'Graphic Design';break;
+  case 'ui-ux' : pageTitle = 'UI UX'; break;
+  default: pageTitle = category.toUpperCase();break;
+}
 
 const metadata = {
-  title: `Portfolio - ${category.toUpperCase()}`,
+  title: `Portfolio - ${pageTitle}`,
   robots: {
     index: blogCategoryRobots?.index,
     follow: blogCategoryRobots?.follow,

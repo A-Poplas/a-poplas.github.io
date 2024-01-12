@@ -42,6 +42,6 @@ const image = (await findImage(post.image));
             <h4 class="text-muted dark:text-slate-700">{post.category}</h4>
         </div>
         <p class="color-black">{post.excerpt}</p>
-        <Button variant="primary" class="w-fit mx-auto h-10 leading-10 mb-0 self-end flex-row-reverse" icon={post.urlIcon} href={post.url} iconClass="mr-1 ml-0">{post.buttonText}</Button>
+        <Button variant="primary" class="w-fit mx-auto h-10 leading-10 mb-0 self-end flex-row-reverse" target="_blank" icon={post.urlIcon} href={post.url} iconClass="mr-1 ml-0">{post.buttonText}</Button>
     </div>
 </article>

@@ -1,14 +1,14 @@
 ---
 publishDate: 2024-01-01T00:00:00Z
-title: 'MUT Visual Identity'
-excerpt: Visual Identity designed for inter-university sports' tournament.
+title: 'ŠSUM - Booklet 2024'
+excerpt: Design of a booklet for educating members of Students' Council members for the year 2023/24.
 category: graphic design
-image: ~/assets/images/gfx/MUT_cover.png
+image: ~/assets/images/gfx/GFX_Leaflet_2.png
 tags:
-  - visual-identity
+  - booklet
   - graphic-design
-  - brand-identity
-url: https://www.behance.net/gallery/186424917/MUT-Visual-Identity
+  - print
+url: https://www.behance.net/andypoplas
 urlIcon: tabler:brand-behance
 buttonText: Check out the project
 ---
