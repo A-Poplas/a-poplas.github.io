@@ -53,14 +53,14 @@ const metadata = {
               email: email,
               message: message
           },
-          success: (data) => function(){
+          success: (data) => {
             console.log("Form sent successfully.");
             $("#formSuccess #sender_name").text(data.name);
             $("#formSuccess").addClass("flex");
             $("#formSuccess").removeClass("hidden");
             event.preventDefault();
           },
-          error: (err) => function(){
+          error: (err) => {
             console.log("Form sending encountered an Error "+err);
             $("#formError #error_code").text(err);
             $("#formError").addClass("flex");
