@@ -1,5 +1,5 @@
 ---
-publishDate: 2024-01-01T00:00:00Z
+publishDate: 2023-02-30T00:00:00Z
 title: Snack'n - Case Study 1
 excerpt: First project of Google's UX/UI Design Specialization.
 category: UI-UX

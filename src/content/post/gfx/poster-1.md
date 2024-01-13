@@ -1,5 +1,5 @@
 ---
-publishDate: 2024-01-01T00:00:00Z
+publishDate: 2020-01-01T00:00:00Z
 title: 'Biophilia - Poster'
 excerpt: Poster designed for Biophilia competition in 2020.
 category: graphic design

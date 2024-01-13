@@ -1,5 +1,5 @@
 ---
-publishDate: 2024-01-01T00:00:00Z
+publishDate: 2023-04-30T00:00:00Z
 title: Goin' out! - Case Study 3
 excerpt: Last project of Google's UX/UI Design Specialization.
 category: UI-UX

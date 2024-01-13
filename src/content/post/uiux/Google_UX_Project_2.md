@@ -1,5 +1,5 @@
 ---
-publishDate: 2024-01-01T00:00:00Z
+publishDate: 2023-03-15T00:00:00Z
 title: DIYI - Case Study 2
 excerpt: Second project of Google's UX/UI Design Specialization.
 category: UI-UX

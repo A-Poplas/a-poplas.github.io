@@ -1,5 +1,5 @@
 ---
-publishDate: 2024-01-01T00:00:00Z
+publishDate: 2023-02-28T00:00:00Z
 title: 'ŠSUM - Booklet'
 excerpt: Booklet designed for educating members of Students' Council of UM.
 category: graphic design
