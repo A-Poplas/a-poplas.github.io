@@ -7,36 +7,6 @@ const metadata = {
   title: 'Contact',
 };
 
-// Import SendGrid package
-import sgMail from '@sendgrid/mail';
-
-// Set SendGrid API key from environment variable
-sgMail.setApiKey("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");
-
-// Define a handler function for form submission
-export async function onSubmit(event) {
-  // Get the form data from the event object
-  const { name, email, message } = event.form;
-
-  // Define the email message
-  const msg = {
-    to: 'andi.poplas@gmail.com', // Change this to your email address
-    from: 'andi.poplas@gmail.com', // Change this to your sender identity
-    subject: `New message from ${name}`,
-    text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
-  };
-
-  // Send the email using SendGrid
-  await sgMail.send(msg);
-
-  // Redirect the user to a thank you page
-  return {
-    statusCode: 302,
-    headers: {
-      Location: '/thank-you',
-    },
-  };
-}
 ---
 
 <Layout metadata={metadata}>
@@ -69,3 +39,6 @@ export async function onSubmit(event) {
     button = "Contact Me"
   />
 </Layout>
+<script>
+  import '~/utils/contactForm.js';
+</script>

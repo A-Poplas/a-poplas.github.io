@@ -18,7 +18,7 @@ metadata:
   openGraph:
     site_name: Andy Poplas' Portfolio
     images:
-      - url: '~/assets/images/default.png'
+      - url: '~/assets/images/siteCover.png'
         width: 1200
         height: 628
     type: website
