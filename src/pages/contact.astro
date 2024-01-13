@@ -39,7 +39,8 @@ const metadata = {
     button = "Contact Me"
   />
   <script is:inline>
-    $("#email_form_1 form").on("submit", function(){
+    $("#email_form_1 form").on("submit", function(event){
+      event.preventDefault();
       const sender = $(this).find("#name").val();
       const email = $(this).find("#email").val();
       const message = $(this).find("#textarea").val();
