@@ -54,8 +54,10 @@ const metadata = {
               message: message
           },
           success: (data) => {
-            console.log("Form sent successfully.");
+            console.log("Form sent successfully. "+data);
             $("#formSuccess #sender_name").text(data.name);
+            $("#email_form_1").removeClass("flex");
+            $("#email_form_1").addClass("hidden");
             $("#formSuccess").addClass("flex");
             $("#formSuccess").removeClass("hidden");
             event.preventDefault();
@@ -63,6 +65,8 @@ const metadata = {
           error: (err) => {
             console.log("Form sending encountered an Error "+err);
             $("#formError #error_code").text(err);
+            $("#email_form_1").removeClass("flex");
+            $("#email_form_1").addClass("hidden");
             $("#formError").addClass("flex");
             $("#formError").removeClass("hidden");
             event.preventDefault();
