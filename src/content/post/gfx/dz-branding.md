@@ -1,5 +1,5 @@
 ---
-publishDate: 2024-01-01T00:00:00Z
+publishDate: 2023-04-30T00:00:00Z
 title: 'Dnevi Zdravja Visual Identity'
 excerpt: Visual Identity designed for a week long event dedicated to health.
 category: graphic design

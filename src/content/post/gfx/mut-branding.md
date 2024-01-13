@@ -1,5 +1,5 @@
 ---
-publishDate: 2024-01-01T00:00:00Z
+publishDate: 2023-11-31T00:00:00Z
 title: 'MUT Visual Identity'
 excerpt: Visual Identity designed for inter-university sports' tournament.
 category: graphic design

@@ -1,5 +1,5 @@
 ---
-publishDate: 2024-01-01T00:00:00Z
+publishDate: 2021-06-30T00:00:00Z
 title: 'Mask Disposal Awareness - Poster'
 excerpt: An idea for a poster that sparkled after seeing too many incorrectly disposed face masks.
 category: graphic design
