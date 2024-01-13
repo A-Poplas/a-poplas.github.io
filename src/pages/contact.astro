@@ -40,7 +40,6 @@ const metadata = {
   />
   <script is:inline>
     $("#email_form_1 form").on("submit", function(event){
-      event.preventDefault();
       const sender = $(this).find("#name").val();
       const email = $(this).find("#email").val();
       const message = $(this).find("#textarea").val();
@@ -59,12 +58,14 @@ const metadata = {
             $("#formSuccess #sender_name").text(data.name);
             $("#formSuccess").addClass("flex");
             $("#formSuccess").removeClass("hidden");
+            event.preventDefault();
           },
           error: (err) => function(){
             console.log("Form sending encountered an Error "+err);
             $("#formError #error_code").text(err);
             $("#formError").addClass("flex");
             $("#formError").removeClass("hidden");
+            event.preventDefault();
           }
       });
     });
