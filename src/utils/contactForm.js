@@ -13,7 +13,7 @@
         console.log("Something went wrong.")
     }
 })*/
-
+/*
 document.querySelector('#email-form-1 form').addEventListener('submit', async (event) => {
     event.preventDefault();
     const formData = new FormData(this);
@@ -31,3 +31,17 @@ document.querySelector('#email-form-1 form').addEventListener('submit', async (e
 });
 
 console.log(document.getElementById("#email-form-1"));
+*/
+
+$.ajax({
+    method: 'POST',
+    url: 'https://formsubmit.co/ajax/andi.poplas@gmail.com',
+    dataType: 'json',
+    accepts: 'application/json',
+    data: {
+        name: "FormSubmit",
+        message: "I'm from Devro LABS"
+    },
+    success: (data) => console.log(data),
+    error: (err) => console.log(err)
+});

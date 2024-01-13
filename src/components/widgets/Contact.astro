@@ -3,6 +3,8 @@ import FormContainer from '~/components/ui/Form.astro';
 import Headline from '~/components/ui/Headline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import type { Contact } from '~/types';
+import FormFailed from '~/components/ui/FormFailed.astro';
+import FormSuccess from '~/components/ui/FormSuccess.astro';
 
 const {
   title = await Astro.slots.render('title'),
@@ -34,6 +36,8 @@ const {
           button={button}
           description={description}
         />
+        <FormSuccess></FormSuccess>
+        <FormFailed></FormFailed>
       </div>
     )
   }
