@@ -5,8 +5,7 @@ import Button from '~/components/ui/Button.astro';
 const { inputs, textarea, disclaimer, button = 'Contact us', description = '' } = Astro.props as Form;
 ---
 
-<form name="email-contact-form" action="https://formsubmit.co/andi.poplas@gmail.com" method="POST"> <!--xnqenvan -->
-  <input type="hidden" name="_next" value="https://a-poplas.github.io">
+<form name="email-contact-form"> <!--xnqenvan -->
   {
     inputs &&
       inputs.map(
