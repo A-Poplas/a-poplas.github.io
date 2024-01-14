@@ -43,6 +43,7 @@ const metadata = {
       const sender = $(this).find("#name").val();
       const email = $(this).find("#email").val();
       const message = $(this).find("#textarea").val();
+      /*opacity + blur with loading icon */
       $.ajax({
           method: 'POST',
           url: 'https://formsubmit.co/ajax/f75d8906a312a76a075d96332380f3d1',
