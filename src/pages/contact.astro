@@ -16,27 +16,31 @@ const metadata = {
 
   <ContactUs
     title="Feel free to message me!"
-    subtitle="You can use the form below to leave a message, and you can also contact me on any social media I'm active on or contact me directly to my e-mail address."
+    subtitle="You can either the form below to leave a message, or you can also contact me on any social media that I use or directly on my <a href='mailto:andi.poplas@gmail.com' class='color-primary hover:underline'>e-mail address</a>."
     inputs={[
       {
         type: 'text',
         name: 'name',
         label: 'Your name',
+        placeholder: 'e.g. John',
+        required: true
       },
       {
         type: 'email',
         name: 'email',
         label: 'Your email',
+        placeholder: 'e.g. john@gmail.com'
       },
     ]}
     textarea={{
       label: 'Your message',
+      placeholder: 'Sup?'
     }}
     disclaimer={{
       label:
         'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
     }}
-    button = "Contact Me"
+    button = "Send a message!"
   />
   <script is:inline>
     $("#email_form_1 form").on("submit", function(event){
