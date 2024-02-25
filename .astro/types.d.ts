@@ -248,6 +248,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
+"uiux/UIUX_Assignment_1.md": {
+	id: "uiux/UIUX_Assignment_1.md";
+  slug: "uiux/uiux_assignment_1";
+  body: string;
+  collection: "post";
+  data: InferEntrySchema<"post">
+} & { render(): Render[".md"] };
 };
 
 	};
