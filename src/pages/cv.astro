@@ -8,6 +8,11 @@ import Steps2 from '~/components/widgets/Steps2.astro';*/
 import Layout from '~/layouts/PageLayout.astro';
 import cv from '~/assets/documents/CV-Poplas-2024-ENG-min.pdf'
 import Note from '~/components/widgets/Note.astro';
+import Image from '~/components/common/Image.astro';
+
+import mepicture from '~/assets/images/me_photo.png';
+import Features3 from '~/components/widgets/Features3.astro';
+import Button from '~/components/ui/Button.astro';
 
 const metadata = {
   title: 'CV',
@@ -18,6 +23,32 @@ const metadata = {
   <Note/>
   <div class="max-w-7xl m-auto py-10">
     <iframe src={cv} class="w-full h-full" style="min-height:800px;"></iframe>
+  </div>
+
+<div class="max-w-7xl m-auto py-10">About Me / Andy Poplas | | | Download Button<Button set:text={"Download CV"} icon="tabler:download" class="flex-row-reverse" iconClass="mr-1 ml-0" href={cv} download="Poplas_CV"></Button></div>
+  <div class="relative m-auto max-w-sm">
+    <div>
+      <Image
+        class="mx-auto w-full rounded-lg bg-gray-500 shadow-lg"
+        width={500}
+        height={500}
+        widths={[400, 768]}
+        sizes="(max-width: 768px) 100vw, 432px"
+        layout="responsive"
+        src={mepicture}
+        alt="Andy Poplas"
+      />
+    </div>
+    <div>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta quasi mollitia officia, aperiam, distinctio corporis, pariatur quis voluptatum minus repudiandae ullam aliquid? Eius reiciendis aperiam libero vitae. Error, nam tempore?</p>
+    </div>
+  </div>
+  <div class="max-w-7xl m-auto py-10">More about me</div>
+  <div class="max-w-7xl m-auto py-10">Section with all the details
+    <Fragment slot="title">
+      Elevate your online presence with our <br />
+      <span class="text-accent dark:text-white highlight"> Beautiful Website Templates</span>
+    </Fragment>
   </div>
 
   <!-- Hero Widget ******************* -->
@@ -54,7 +85,7 @@ const metadata = {
   />
  -->
   <!-- Features3 Widget ************** -->
-<!--
+
   <Features3
     title="Our templates"
     subtitle="Etiam scelerisque, enim eget vestibulum luctus, nibh mauris blandit nulla, nec vestibulum risus justo ut enim. Praesent lacinia diam et ante imperdiet euismod."
@@ -81,7 +112,7 @@ const metadata = {
       },
     ]}
   />
- -->
+
   <!-- Features3 Widget ************** -->
 <!--
   <Features3
