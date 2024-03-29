@@ -23,15 +23,15 @@ export const headerData = {
       text: 'UI/UX',
       href: getPermalink('category/ui-ux'),
     },
-    /*{
+    {
       text: 'Other',
       links: [
         {
           text: '3D',
-          href: getPermalink('/#features'),
+          href: getPermalink('category/3D'),
         },
       ],
-    },*/
+    },
   ],
 };
 
