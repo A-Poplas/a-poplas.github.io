@@ -185,6 +185,13 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"post": {
+"gamedev/eggs4pie.md": {
+	id: "gamedev/eggs4pie.md";
+  slug: "gamedev/eggs4pie";
+  body: string;
+  collection: "post";
+  data: InferEntrySchema<"post">
+} & { render(): Render[".md"] };
 "gfx/dz-branding.md": {
 	id: "gfx/dz-branding.md";
   slug: "gfx/dz-branding";
@@ -213,6 +220,13 @@ declare module 'astro:content' {
   collection: "post";
   data: InferEntrySchema<"post">
 } & { render(): Render[".md"] };
+"gfx/rollup-promotable.md": {
+	id: "gfx/rollup-promotable.md";
+  slug: "gfx/rollup-promotable";
+  body: string;
+  collection: "post";
+  data: InferEntrySchema<"post">
+} & { render(): Render[".md"] };
 "gfx/ssum-booklet-1.md": {
 	id: "gfx/ssum-booklet-1.md";
   slug: "gfx/ssum-booklet-1";
@@ -223,6 +237,13 @@ declare module 'astro:content' {
 "gfx/ssum-booklet-2.md": {
 	id: "gfx/ssum-booklet-2.md";
   slug: "gfx/ssum-booklet-2";
+  body: string;
+  collection: "post";
+  data: InferEntrySchema<"post">
+} & { render(): Render[".md"] };
+"gfx/tu-branding.md": {
+	id: "gfx/tu-branding.md";
+  slug: "gfx/tu-branding";
   body: string;
   collection: "post";
   data: InferEntrySchema<"post">
