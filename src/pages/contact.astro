@@ -2,82 +2,23 @@
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import ContactUs from '~/components/widgets/Contact.astro';
+import Headline from '~/components/blog/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Button from '~/components/ui/Button.astro';
 
 const metadata = {
   title: 'Contact',
 };
-
 ---
 
 <Layout metadata={metadata}>
   <!-- HeroText Widget ******************* -->
-
-  <HeroText tagline="Contact" title="Want to get in touch?" />
-
-  <ContactUs
-    title="Feel free to message me!"
-    subtitle="You can either the form below to leave a message, or you can also contact me on any social media that I use or directly on my <a href='mailto:andi.poplas@gmail.com' class='color-primary hover:underline'>e-mail address</a>."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Your name',
-        placeholder: 'e.g. John',
-        required: true
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Your email',
-        placeholder: 'e.g. john@gmail.com'
-      },
-    ]}
-    textarea={{
-      label: 'Your message',
-      placeholder: 'Sup?'
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    button = "Send a message!"
-  />
-  <script is:inline>
-    $("#email_form_1 form").on("submit", function(event){
-      const sender = $(this).find("#name").val();
-      const email = $(this).find("#email").val();
-      const message = $(this).find("#textarea").val();
-      /*opacity + blur with loading icon */
-      $.ajax({
-          method: 'POST',
-          url: 'https://formsubmit.co/ajax/f75d8906a312a76a075d96332380f3d1',
-          dataType: 'json',
-          accepts: 'application/json',
-          data: {
-              name: sender,
-              email: email,
-              message: message
-          },
-          success: (data) => {
-            console.log("Form sent successfully.");
-            $("#formSuccess #sender_name").text(sender);
-            $("#email_form_1 form").removeClass("flex");
-            $("#email_form_1 form").addClass("hidden");
-            $("#formSuccess").addClass("flex");
-            $("#formSuccess").removeClass("hidden");
-            event.preventDefault();
-          },
-          error: (err) => {
-            console.log("Form sending encountered an Error "+err);
-            $("#formError #error_code").text(err);
-            $("#email_form_1 form").removeClass("flex");
-            $("#email_form_1 form").addClass("hidden");
-            $("#formError").addClass("flex");
-            $("#formError").removeClass("hidden");
-            event.preventDefault();
-          }
-      });
-    });
-    
-  </script>
+  <section class="py-16">
+  <HeroText class="mb-0" tagline="Contact" title="Want to get in touch?" subtitle="Feel free to message me on email address <a href='mailto:andi.poplas@gmail.com' class='color-primary hover:underline'>andi.poplas@gmail.com</a>, or by sending me a message on any social media that I use."/>
+  <div class="flex max-w-screen-xl mx-auto flex-col">
+  <Button variant="secondary" class="w-fit mx-auto h-10 leading-10 mb-0 mt-6 self-end flex-row-reverse" href="mailto:andi.poplas@gmail.com" icon="solar:letter-outline" iconClass="mr-2">andi.poplas@gmail.com</Button>
+  <Button variant="secondary" class="w-fit mx-auto h-10 leading-10 mb-0 mt-6 self-end flex-row-reverse" href="https://www.linkedin.com/in/andy-poplas/" icon="ph:linkedin-logo" iconClass="mr-2">andy_poplas</Button>
+  <Button variant="secondary" class="w-fit mx-auto h-10 leading-10 mb-0 mt-6 self-end flex-row-reverse" href="https://www.instagram.com/y_poplas/" icon="ph:instagram-logo" iconClass="mr-2">a_poplas</Button>
+  </div>
+</section>
 </Layout>

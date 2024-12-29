@@ -25,10 +25,10 @@ export interface Props {
 const { secondaryLinks = [], footNote = '', theme = 'light' } = Astro.props;
 ---
 
-<footer class:list={[{ dark: theme === 'dark' }, 'relative border-t not-prose']}>
+<footer class:list={[{ dark: theme === 'dark' }, 'relative not-prose pt-10']}>
   <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
   <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
-    <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 py-8 md:py-12 items-center">
+    <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 py-0 md:py-0 items-center">
       <div class="col-span-12 lg:col-span-6">
           <SocialIcons {...socialIconsData} iconClass="lg:w-6 lg:h-6 w-8 h-8"></SocialIcons>
       </div>
@@ -48,7 +48,7 @@ const { secondaryLinks = [], footNote = '', theme = 'light' } = Astro.props;
           </div>
         </div>
     </div>
-    <div class="flex items-center justify-center py-6 md:py-8">
+    <div class="flex items-center justify-center py-6 md:py-6">
       <div class="text-sm mr-4 dark:text-muted">
         <Fragment set:html={footNote} />
       </div>

@@ -1,5 +1,5 @@
 site:
-  name: Andy Poplas' Portfolio
+  name: Andy Poplas
   site: 'https://a-poplas.github.io'
   base: '/'
   trailingSlash: false
@@ -9,14 +9,14 @@ site:
 # Default SEO metadata
 metadata:
   title:
-    default: Andy Poplas' Portfolio
+    default: Andy Poplas
     template: '%s'
   description: "Interdisciplinary Designer - Graphic Design, UI/UX, Web & More"
   robots:
     index: true
     follow: true
   openGraph:
-    site_name: Andy Poplas' Portfolio
+    site_name: Andy Poplas
     images:
       - url: '~/assets/images/siteCover.png'
         width: 1200
@@ -34,7 +34,7 @@ i18n:
 apps:
   blog:
     isEnabled: true
-    postsPerPage: 6
+    postsPerPage: 100
 
     post:
       isEnabled: true
@@ -44,7 +44,7 @@ apps:
 
     list:
       isEnabled: true
-      pathname: 'blog' # Blog main path, you can change this to "articles" (/articles)
+      pathname: 'work' # Blog main path, you can change this to "articles" (/articles)
       robots:
         index: true
 

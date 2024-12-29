@@ -9,12 +9,17 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
 
 import '~/assets/styles/presentation.css';
-import mepicture from '~/assets/images/me_photo.png';
+import BlogHighlightedPosts from '~/components/widgets/BlogHighlightedPosts.astro';
+import { getEntries } from 'astro:content';
+import { idText } from 'typescript';
+import DynamicShowcase from '~/components/blog/DynamicShowcase.astro';
+import { fetchPosts, findPostsByIds } from '~/utils/blog';
 
 const metadata = {
   title: 'Andy Poplas\' Portfolio',
-  ignoreTitleTemplate: true,
+  ignoreTitleTemplate: true
 };
+const featuredPostsArray = ["gfx/ssum-booklet-2.md", "gfx/ssum-booklet-1.md"]
 
 ---
 
@@ -25,64 +30,10 @@ const metadata = {
     </HeroAnimation>
   </section>
 
-  <!-- Note Widget ******************* -->
-
-  <!--<Note /> -->
-
-  <!-- Content Widget **************** -->
-  <Content
-    isReversed
-    items={[
-      {
-        title: 'I actively work in',
-        description:
-          '<ul class="presentation-list text-muted mt-3 ml-2" style="list-style:inside; columns:2;">\
-            <li>Graphic Design</li>\
-            <li>UI/UX</li>\
-            <li>Web Development</li>\
-            <li>Video Editing</li>\
-          </ul>',
-        icon: 'dynamicSet-1',
-      },
-      {
-        title: 'While I\'m also interested in many others things',
-        description:
-          '<ul class="presentation-list text-muted mt-3 ml-2" style="list-style:inside; columns:2;">\
-            <li>Product Design</li>\
-            <li>3D Modeling</li>\
-            <li>Game Design & Development</li>\
-            <li>Music</li>\
-            <li>& many more</li>\
-          </ul>',
-        icon: 'dynamicSet-2',  
-      },
-    ]}
-    image={{
-      src: mepicture,
-      alt: 'Picture of Andy',
-      draggable: 'false'
-    }}
-    classes={{
-      container: "max-w-5xl",
-      imageClasses: "flex items-center"
-    }}
-  >
-  
-    <Fragment slot="content">
-      <h3 class="text-2xl font-bold tracking-tight dark:text-white sm:text-3xl mb-2">A Swiss knife in creating content</h3>
-       <span class="dark:text-muted">As a creative who's interested in different media and fields, I'm always on the lookout for even more!</span>
-    </Fragment>
-
-    <!-- <Fragment slot="bg">
-      <div class="absolute inset-0 bg-color-grayishOrange dark:bg-transparent"></div>
-    </Fragment> -->
-  </Content>
 
   <!-- HighlightedPosts Widget ******* -->
 
-  <BlogLatestPosts
-    title="Recent Projects"
-  />
+  <BlogHighlightedPosts title="Featured Projects", postIds={featuredPostsArray}/>
 
   <!-- CallToAction Widget *********** -->
 
@@ -92,7 +43,7 @@ const metadata = {
         variant: 'primary',
         text: 'Contact Me',
         href: '/contact',
-        icon: 'tabler:mail',
+        icon: 'solar:letter-outline',
         iconClass: 'mr-1 ml-0',
         buttonClass: 'flex-row-reverse',
       },

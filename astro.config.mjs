@@ -12,7 +12,7 @@ import tasks from './src/utils/tasks';
 
 import { readingTimeRemarkPlugin, responsiveTablesRehypePlugin } from './src/utils/frontmatter.mjs';
 
-import { ANALYTICS, SITE } from './src/utils/config.ts';
+import { ANALYTICS, APP_BLOG, SITE } from './src/utils/config.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -23,11 +23,11 @@ const whenExternalScripts = (items = []) =>
       : [items()]
     : [];
 
+
 export default defineConfig({
   site: 'https://a-poplas.github.io',
   base: '',
   trailingSlash: SITE.trailingSlash ? 'always' : 'never',
-
   output: 'static',
 
   integrations: [
@@ -50,6 +50,8 @@ export default defineConfig({
           'business-contact',
           'database',
         ],
+        solar: ['*'],
+        ph: ['*'],
       },
     }),
 

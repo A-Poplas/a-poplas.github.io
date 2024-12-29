@@ -4,6 +4,7 @@ import type { Post } from '~/types';
 import Image from '~/components/common/Image.astro';
 
 import { findImage } from '~/utils/images';
+import { getPermalink } from '~/utils/permalinks';
 import Button from '../ui/Button.astro';
 
 
@@ -42,6 +43,6 @@ const image = (await findImage(post.image));
             <h4 class="text-muted dark:text-slate-700">{post.category}</h4>
         </div>
         <p class="color-black">{post.excerpt}</p>
-        <Button variant="primary" class="w-fit mx-auto h-10 leading-10 mb-0 self-end flex-row-reverse" target="_blank" icon={post.urlIcon} href={post.url} iconClass="mr-1 ml-0">{post.buttonText}</Button>
+        <Button variant="secondary" class="w-fit mx-auto h-10 leading-10 mb-0 self-end flex-row-reverse" href={getPermalink(post.permalink, 'post')}>{post.buttonText}</Button>
     </div>
 </article>

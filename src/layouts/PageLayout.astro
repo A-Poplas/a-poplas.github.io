@@ -20,7 +20,7 @@ const { metadata } = Astro.props;
     <Announcement /> *Edit annoucement in slot & Enable disable it some other way - properties?
   </slot>-->
   <slot name="header">
-    <Header {...headerData} isSticky showToggleTheme />
+    <Header {...headerData} isSticky showToggleTheme isFullWidth={true} />
   </slot>
   <main>
     <slot />

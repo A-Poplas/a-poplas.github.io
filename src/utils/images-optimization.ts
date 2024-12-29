@@ -169,6 +169,7 @@ const getStyle = ({
     styleEntries.push(['max-width', '100%']);
     styleEntries.push(['max-height', '100%']);
   }
+  
 
   const styles = Object.fromEntries(styleEntries.filter(([, value]) => value));
 

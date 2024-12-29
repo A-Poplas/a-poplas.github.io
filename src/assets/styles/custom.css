@@ -52,6 +52,9 @@
 .btn-primary,.btn-secondary,.btn-tertiary{
     border-radius: 0.5rem;
 }
+.btn-secondary:hover{
+    background-color: rgba(246, 246, 243, 1);
+}
 
 /* States */
 .hover\:bg-grayishOrange-100:hover{
@@ -84,7 +87,14 @@
 :is(:where(.dark) .dark\:border-gray-20){
     border: 1px solid rgba(107,114,128,0.2);
 }
+:is(:where(.dark) .dark\:bg-slate-700){
+    background-color:rgba(255,255,255,0.1);
+}
+:is(:where(.dark) .dark\:text-slate-400){
+    color:rgb(180, 180, 180);
+}
 
+/*
 footer>div:first-child{
     background-color: var(--aw-color-bg-secondary-white);
     border-top-color: rgba(25,25,25,0.05);
@@ -95,4 +105,4 @@ footer>div:first-child{
 .dark footer>div:first-child{
     background-color: rgba(25,25,25,0.2);
     border-top-color: rgba(107,114,128,0.2);
-}
+}*/

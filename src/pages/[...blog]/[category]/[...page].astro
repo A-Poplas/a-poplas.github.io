@@ -5,7 +5,7 @@ import { blogCategoryRobots, getStaticPathsBlogCategory } from '~/utils/blog';
 import Layout from '~/layouts/PageLayout.astro';
 import BlogListCustom from '~/components/blog/ListCustom.astro';
 import Headline from '~/components/blog/Headline.astro';
-import CallToAction from '~/components/widgets/CallToAction.astro';
+import Button from '~/components/ui/Button.astro';
 
 export const prerender = true;
 
@@ -36,32 +36,21 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <section class="px-4 md:px-6 pt-12 sm:pt-16 lg:pt-20 mx-auto max-w-4xl">
-    {category === "graphic-design" ? ( 
-      <Headline><span>Graphic Design</span></Headline>
+    <!-- Flex - space between -->
+    <div>{category === "graphic-design" ? ( 
+      <Headline class="flex justify-between">
+        <Fragment slot="default" class="color-red">Graphic Design</Fragment>
+        <Fragment slot='button'><Button variant="secondary" href="https://www.behance.net/andypoplas" target="_blank" icon="tabler:brand-behance" class="flex-row-reverse" iconClass="mr-1 ml-0">Behance</Button></Fragment>
+      </Headline>
+    ) : category === 'ui-ux' ? (
+      <Headline class="flex justify-between">
+        <Fragment slot="default" class="color-red">UI-UX Design</Fragment>
+        <Fragment slot='button'><Button variant="secondary" href="https://www.behance.net/andypoplas" target="_blank" icon="tabler:brand-behance" class="flex-row-reverse" iconClass="mr-1 ml-0">Behance</Button></Fragment>
+      </Headline>
     ) : (
-      <Headline><span class="uppercase">{category.replaceAll('-', ' ')}</span></Headline>
+      <Headline class="uppercase">{category.replaceAll('-', ' ')}</Headline>
     )}
-    {(category === "graphic-design" || category === "ui-ux") &&
-    <CallToAction actions={[
-      {
-        variant: 'primary',
-        text: 'More on Behance',
-        href: 'https://www.behance.net/andypoplas',
-        target: '_blank',
-        icon: 'tabler:brand-behance',
-        buttonClass: 'flex-row-reverse',
-        iconClass: 'mr-1 ml-0',
-      }
-    ]}
-    classes={{
-      container: "pt-5 md:pt-5 lg:pt-5",
-    }}
-  >
-    <Fragment slot="subtitle">
-      Feel free to also check out these projects on Behance, which may contain even more projects.
-    </Fragment>
-    </CallToAction>
-    }
+    </div>
     
   </section>
   <!-- <div class="flex flex-col mx-auto lg:justify-between lg:flex-row max-w-7xl px-4 md:px-6 py-12 md:py-16 lg:py-20 text-default">

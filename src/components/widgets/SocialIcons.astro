@@ -12,11 +12,13 @@ interface Link {
 export interface Props {
   socialLinks: Array<Link>;
   iconClass?: string;
+  label?: boolean
 }
   
   const { 
     socialLinks = [],
-    iconClass = "lg:w-5 lg:h-5 w-8 h-8" 
+    iconClass = "lg:w-5 lg:h-5 w-8 h-8",
+    label = false,
   } = Astro.props;
 ---
 
@@ -33,11 +35,11 @@ export interface Props {
               target={target}
             >
               {icon && <Icon name={icon} class={iconClass} />}   
-              <span class="text-xs hidden"><Fragment set:html={text} /></span>
+              <span class={`text-xs ${label == false ? 'hidden' : 'ml-1'}`}><Fragment set:html={text} /></span>
             </a>
           </li>
         ))}
-      </ul> /* Remove "hidden" from span to show icon labels Default icon color:color-text-default */
+      </ul>
     ) : (
       ''
     )
