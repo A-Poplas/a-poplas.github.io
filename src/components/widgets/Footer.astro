@@ -1,0 +1,57 @@
+---
+import SocialIcons from '~/components/widgets/SocialIcons.astro';
+
+import { socialIconsData } from '~/navigation';
+
+interface Link {
+  text?: string;
+  href?: string;
+  ariaLabel?: string;
+  icon?: string;
+}
+
+interface Links {
+  title?: string;
+  links: Array<Link>;
+}
+
+export interface Props {
+  links: Array<Links>;
+  secondaryLinks: Array<Link>;
+  footNote?: string;
+  theme?: string;
+}
+
+const { secondaryLinks = [], footNote = '', theme = 'light' } = Astro.props;
+---
+
+<footer class:list={[{ dark: theme === 'dark' }, 'relative not-prose pt-10']}>
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6">
+    <div class="grid grid-cols-12 gap-4 gap-y-8 sm:gap-8 py-0 md:py-0 items-center">
+      <div class="col-span-12 lg:col-span-6">
+          <SocialIcons {...socialIconsData} iconClass="lg:w-6 lg:h-6 w-8 h-8"></SocialIcons>
+      </div>
+        <div class="col-span-12 lg:col-span-6 px-5 lg:px-0">
+          <h3 class="font-bold my-2">Contact me!</h3>
+          <p class="text-muted">I’m always open to inqueries, questions or anything else on my e-mail <a class="color-primary hover:underline" href="mailto:andi.poplas@gmail.com">andi.poplas@gmail.com</a> or any of the social sites.</p>
+          <div class="text-sm text-muted my-2">
+            {
+            secondaryLinks.map(({ text, href }) => (
+              <a
+                class="text-default hover:text-link dark:text-gray-400 hover:underline transition duration-150 ease-in-out mr-2 rtl:mr-0 rtl:ml-2" 
+                href={href}
+                set:html={text}
+              />
+            )) /* Change hover colors of buttons */
+          }
+          </div>
+        </div>
+    </div>
+    <div class="flex items-center justify-center py-6 md:py-6">
+      <div class="text-sm mr-4 dark:text-muted">
+        <Fragment set:html={footNote} />
+      </div>
+    </div>
+  </div>
+</footer>

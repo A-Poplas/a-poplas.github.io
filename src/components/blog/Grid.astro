@@ -1,0 +1,27 @@
+---
+import Item from '~/components/blog/GridItem.astro';
+import type { Post } from '~/types';
+import DynamicShowcase from '~/components/blog/DynamicShowcase.astro';
+import '~/assets/styles/dynamicPosts.css';
+import ZShowcase from './ZShowcase.astro';
+
+export interface Props {
+  posts: Array<Post>;
+}
+
+const { posts } = Astro.props;
+---
+<div class="grid gap-6 row-gap-5 md:grid-cols-2 lg:grid-cols-4 -mb-6">
+  <!--{posts.map((post) => <DynamicShowcase post={post} />)}-->
+  {posts.map((post,index) => {
+    if (index % 2 === 1){
+      return <ZShowcase isReversed={true} post={post}/>
+    }
+    return <ZShowcase isReversed={false} post={post}/>
+    }
+  )}
+  
+  
+  
+  
+</div>

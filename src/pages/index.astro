@@ -1,0 +1,60 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+
+import HeroAnimation from '~/components/widgets/HeroAnimation.astro';
+//import Note from '~/components/widgets/Note.astro';
+import Content from '~/components/widgets/Content.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import CallToAction from '~/components/widgets/CallToAction.astro';
+
+import '~/assets/styles/presentation.css';
+import BlogHighlightedPosts from '~/components/widgets/BlogHighlightedPosts.astro';
+import { getEntries } from 'astro:content';
+import { idText } from 'typescript';
+import DynamicShowcase from '~/components/blog/DynamicShowcase.astro';
+import { fetchPosts, findPostsByIds } from '~/utils/blog';
+
+const metadata = {
+  title: 'Andy Poplas\' Portfolio',
+  ignoreTitleTemplate: true
+};
+const featuredPostsArray = ["gfx/ssum-booklet-2.md", "gfx/ssum-booklet-1.md"]
+
+---
+
+<Layout metadata={metadata}>
+  <!-- Hero Widget ******************* -->
+  <section>
+    <HeroAnimation>
+    </HeroAnimation>
+  </section>
+
+
+  <!-- HighlightedPosts Widget ******* -->
+
+  <BlogHighlightedPosts title="Featured Projects", postIds={featuredPostsArray}/>
+
+  <!-- CallToAction Widget *********** -->
+
+  <CallToAction
+    actions={[
+      {
+        variant: 'primary',
+        text: 'Contact Me',
+        href: '/contact',
+        icon: 'solar:letter-outline',
+        iconClass: 'mr-1 ml-0',
+        buttonClass: 'flex-row-reverse',
+      },
+    ]}
+  >
+    <Fragment slot="title">
+      Don’t hesitate to contact me!
+    </Fragment>
+
+    <Fragment slot="subtitle">
+      If you have any questions or inquiries, I’ll be happy to answer them! You’re welcome to contact me on any social platform or by e-mail <a href="mailto:andi.poplas@gmail.com" class="color-primary hover:underline">andi.poplas@gmail.com</a>.
+    </Fragment>
+  </CallToAction>
+</Layout>

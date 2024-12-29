@@ -1,0 +1,24 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import ContactUs from '~/components/widgets/Contact.astro';
+import Headline from '~/components/blog/Headline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Button from '~/components/ui/Button.astro';
+
+const metadata = {
+  title: 'Contact',
+};
+---
+
+<Layout metadata={metadata}>
+  <!-- HeroText Widget ******************* -->
+  <section class="py-16">
+  <HeroText class="mb-0" tagline="Contact" title="Want to get in touch?" subtitle="Feel free to message me on email address <a href='mailto:andi.poplas@gmail.com' class='color-primary hover:underline'>andi.poplas@gmail.com</a>, or by sending me a message on any social media that I use."/>
+  <div class="flex max-w-screen-xl mx-auto flex-col">
+  <Button variant="secondary" class="w-fit mx-auto h-10 leading-10 mb-0 mt-6 self-end flex-row-reverse" href="mailto:andi.poplas@gmail.com" icon="solar:letter-outline" iconClass="mr-2">andi.poplas@gmail.com</Button>
+  <Button variant="secondary" class="w-fit mx-auto h-10 leading-10 mb-0 mt-6 self-end flex-row-reverse" href="https://www.linkedin.com/in/andy-poplas/" icon="ph:linkedin-logo" iconClass="mr-2">andy_poplas</Button>
+  <Button variant="secondary" class="w-fit mx-auto h-10 leading-10 mb-0 mt-6 self-end flex-row-reverse" href="https://www.instagram.com/y_poplas/" icon="ph:instagram-logo" iconClass="mr-2">a_poplas</Button>
+  </div>
+</section>
+</Layout>

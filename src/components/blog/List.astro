@@ -1,0 +1,23 @@
+---
+import type { Post } from '~/types';
+import ZShowcase from '~/components/blog/ZShowcase.astro';
+//import VerticalShowcase from './VerticalShowcase.astro';
+
+export interface Props {
+  posts: Array<Post>;
+}
+
+const { posts } = Astro.props;
+---
+
+<ul>
+  <li class="mb-12 md:mb-20">
+      {posts.map((post,index) => {
+        if (index % 2 === 1){
+          return <ZShowcase isReversed={false} post={post}/>
+        }
+          return <ZShowcase isReversed={true} post={post}/>
+      }
+      )}
+  </li>
+</ul>

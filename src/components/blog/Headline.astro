@@ -1,0 +1,19 @@
+---
+import { twMerge } from 'tailwind-merge';
+
+const { title = await Astro.slots.render('default'), subtitle = await Astro.slots.render('subtitle'), button = await Astro.slots.render('button'), class: className = ''} = Astro.props;
+---
+
+<header class={twMerge("mb-4 md:mb-8 max-w-3xl mx-auto ", className)}> <!-- text-center -->
+  <h1 class="text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading w-fit" set:html={title} />
+  {
+    subtitle && (
+      <div class="mt-2 md:mt-3 mx-auto text-xl text-gray-500 dark:text-slate-400 font-medium" set:html={subtitle} />
+    )
+  }
+  {
+    button && (
+      <div set:html={button} />
+    )
+  }
+</header>

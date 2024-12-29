@@ -1,0 +1,47 @@
+---
+import { Icon } from 'astro-icon/components';
+
+interface Link {
+  text?: string;
+  href?: string;
+  ariaLabel?: string;
+  icon?: string;
+  target?: string;
+}
+
+export interface Props {
+  socialLinks: Array<Link>;
+  iconClass?: string;
+  label?: boolean
+}
+  
+  const { 
+    socialLinks = [],
+    iconClass = "lg:w-5 lg:h-5 w-8 h-8",
+    label = false,
+  } = Astro.props;
+---
+
+<div>
+{
+    socialLinks?.length ? (
+      <ul class="flex md:order-1 -ml-2 md:ml-4 md:mb-0 rtl:ml-0 rtl:-mr-2 rtl:md:ml-0 rtl:md:mr-4 justify-center">
+        {socialLinks.map(({ ariaLabel, href, text, icon, target }) => (
+          <li>
+            <a
+              class="color-text-default dark:text-gray-400 hover:bg-grayishOrange-100 dark:hover:bg-grayishOrange-10 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5 inline-flex items-center" 
+              aria-label={ariaLabel}
+              href={href}
+              target={target}
+            >
+              {icon && <Icon name={icon} class={iconClass} />}   
+              <span class={`text-xs ${label == false ? 'hidden' : 'ml-1'}`}><Fragment set:html={text} /></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      ''
+    )
+  }
+</div>

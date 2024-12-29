@@ -1,0 +1,12 @@
+.dynamicPost:hover{
+    transform: scale(1.03,1.03);
+    transition: transform 0.5s;
+}
+.dynamicPost:hover .pictureOverlay{
+    opacity: 1;
+    transition: opacity 0.5s;
+}
+.dynamicPost .pictureOverlay{
+    transition: opacity 0.5s;
+    opacity: 0;
+}

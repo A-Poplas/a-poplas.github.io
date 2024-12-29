@@ -1,0 +1,150 @@
+---
+import type { Post } from '~/types';
+import { APP_BLOG } from '~/utils/config';
+
+import Image from '~/components/common/Image.astro';
+
+import { findImage } from '~/utils/images';
+import { getPermalink } from '~/utils/permalinks';
+import Button from '../ui/Button.astro';
+
+
+export interface Props {
+  post: Post;
+  isReversed: boolean;
+}
+
+const { 
+  post,
+  isReversed = false
+} = Astro.props;
+const image = (await findImage(post.image));
+
+const link = APP_BLOG?.post?.isEnabled ? getPermalink(post.permalink, 'post') : '';
+---
+<!--
+<article class={`zShowcase flex mb-6 transition rounded shadow-lg md:h-64 overflow-hidden ${isReversed ? 'md:flex-row-reverse' : ''}`}>
+    <div class="pictureLayer grid w-full h-full overflow-hidden row-start-1 col-start-1 z-10">
+        {
+            image && (
+                <Image
+                  src={image}
+                  class="w-full md:h-full rounded shadow-lg bg-white"
+                  widths={[400, 900]}
+                  width={400}
+                  sizes="(max-width: 900px) 400px, 900px"
+                  alt={post.title}
+                  aspectRatio="16:9"
+                  layout="cover"
+                  loading="lazy"
+                  decoding="async"
+                />
+            )
+          }
+    </div>
+    <div class="pictureOverlay grid grid-cols-1 p-4 w-full h-full row-start-1 col-start-1 z-20 overflow-hidden items-center" style="background-color:rgba(255,255,255,0.8); background-blend-mode:lighten; backdrop-filter:blur(6px);-webkit-backdrop-filter: blur(6px);">
+        <div>
+            <h3 class="text-xl font-bold leading-tight dark:color-black">
+              {post.title}
+            </h3>
+            <h4 class="text-muted dark:text-slate-700">{post.category}</h4>
+        </div>
+        <p class="color-black">{post.excerpt} <a href={getPermalink(post.permalink, 'post')}>Here</a></p>
+        <Button variant="primary" class="w-fit mx-auto h-10 leading-10 mb-0 self-end flex-row-reverse" target="_blank" icon={post.urlIcon} href={post.url} iconClass="mr-1 ml-0">{post.buttonText}</Button>
+    </div>
+</article>
+
+<article class="mb-6 transition">
+  <div class="relative md:h-64 bg-gray-400 dark:bg-slate-700 rounded shadow-lg mb-6">
+    {
+      image && (
+        <a href={getPermalink(post.permalink, 'post')}>
+          <Image
+            src={image}
+            class="w-full md:h-full rounded shadow-lg bg-gray-400 dark:bg-slate-700"
+            widths={[400, 900]}
+            width={400}
+            sizes="(max-width: 900px) 400px, 900px"
+            alt={post.title}
+            aspectRatio="16:9"
+            layout="cover"
+            loading="lazy"
+            decoding="async"
+          />
+        </a>
+      )
+    }
+  </div>
+  <h3 class="mb-2 text-xl font-bold leading-tight sm:text-2xl font-heading">
+    {
+      !APP_BLOG?.post?.isEnabled ? (
+        post.title
+      ) : (
+        <a
+          href={getPermalink(post.permalink, 'post')}
+          class="hover:text-primary dark:hover:text-blue-700  transition ease-in duration-200"
+        >
+          {post.title}
+        </a>
+      )
+    }
+  </h3>
+  <p class="text-muted dark:text-slate-400 text-lg">{post.excerpt}</p>
+</article>
+ -->
+
+
+
+<article class={`max-w-md mx-auto md:max-w-none my-16 grid gap-6 md:gap-12 ${image ? 'md:grid-cols-2' : ''}`}>
+  {
+    image && (
+      <a class={`relative block group ${isReversed ? 'md:order-last' : ''}`} href={link ?? 'javascript:void(0)'}>
+        <div class="relative pb-[56.25%] md:pb-[75%] md:h-96 lg:pb-[56.25%] overflow-hidden bg-gray-400 dark:bg-slate-700 rounded shadow-lg">
+          {image && (
+            <Image
+              src={image}
+              alt={post.title}
+              class="absolute object-cover inset-0 w-full h-full mb-6 rounded shadow-lg bg-gray-400 dark:bg-slate-700"
+              widths={[400, 900]}
+              height={1000}
+              sizes="(max-width: 900px) 400px, 900px"
+              loading="lazy"
+              decoding="async"
+              layout="cover"
+            />
+          )}
+        </div>
+      </a>
+    )
+  }
+  <div class={`md:mt-2 self-center ${isReversed ? 'md:text-right' : ''}`}>
+    <header>
+      <h2 class="text-xl sm:text-2xl font-bold leading-tight mb-1 font-heading dark:text-slate-300">
+        {
+          link ? (
+            <a class="hover:text-primary transition ease-in duration-200" href={link}>
+              {post.title}
+            </a>
+          ) : (
+            post.title
+          )
+        }
+      </h2>
+      <div class="mb-5">
+        <span class="text-sm">
+          {
+            post.category && (
+              <>
+                <a class="capitalize hover:underline" href={getPermalink(post.category, 'category')}>
+                  {post.category.replaceAll('-', ' ')}
+                </a>
+              </>
+            )
+          }
+        </span>
+      </div>
+    </header>
+    {post.excerpt && <p class="flex-grow text-muted dark:text-slate-400">{post.excerpt}</p>}
+    <Button variant="secondary" class="w-fit mx-auto h-10 leading-10 mb-0 mt-8 self-end flex-row-reverse" href={link}>{post.buttonText}</Button>
+  </div>
+</article>

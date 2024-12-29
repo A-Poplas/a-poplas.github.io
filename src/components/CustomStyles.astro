@@ -1,0 +1,64 @@
+---
+//import '@fontsource-variable/inter';
+import '@fontsource-variable/urbanist';
+import '@fontsource-variable/caveat';
+
+
+// 'DM Sans'
+// Nunito
+// Dosis
+// Outfit
+// Roboto
+// Literata
+// 'IBM Plex Sans'
+// Karla
+// Poppins
+// 'Fira Sans'
+// 'Libre Franklin'
+// Inconsolata
+// Raleway
+// Oswald
+// 'Space Grotesk'
+// Urbanist
+---
+
+<style is:inline is:global>
+  :root {
+    --aw-font-sans: 'Urbanist Variable', sans-serif;
+    --aw-font-serif: var(--aw-font-sans);
+    --aw-font-heading: var(--aw-font-sans);
+
+    --aw-color-primary: rgb(231, 191, 57);  /* 30 64 175 */ /* yellow: 235 201 24 */ /*Black 41, 40, 31  || rgb(231, 191, 57) */
+    --aw-color-secondary: rgb(199, 165, 52); /* 30 58 138 || rgb(199, 165, 52)  */                                                      /* YELLOW: 255, 200, 87 */
+    --aw-color-accent: rgb(102, 16, 242);
+
+    --aw-color-text-heading: rgb(0 0 0); 
+    --aw-color-text-default: rgb(25, 25, 25);
+    --aw-color-text-muted: rgba(25, 25, 25, 0.6);
+    --aw-color-bg-page: rgb(255 255 255);
+
+    --aw-color-bg-page-dark: rgb(51, 50, 47);
+    --aw-color-bg-secondary-white: rgb(252,252,255);
+
+    ::selection {background-color: lavender;}
+
+  }
+
+  .dark {
+    --aw-font-sans: 'Urbanist Variable', sans-serif;;
+    --aw-font-serif: var(--aw-font-sans);
+    --aw-font-heading: var(--aw-font-sans);
+
+    --aw-color-primary: rgb(231, 191, 57);
+    --aw-color-secondary: rgb(199, 165, 52);
+    --aw-color-accent: rgb(102, 16, 242);
+
+    --aw-color-text-heading: rgb(0 0 0); 
+    --aw-color-text-default: rgb(229 236 246);
+    --aw-color-text-muted: rgb(229 236 246 / 66%);
+    --aw-color-bg-page: var(--aw-color-bg-page-dark);
+
+    ::selection {background-color: black; color: snow}
+
+  }
+</style>

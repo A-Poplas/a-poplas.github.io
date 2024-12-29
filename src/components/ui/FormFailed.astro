@@ -1,0 +1,16 @@
+---
+import { Icon } from "astro-icon/components";
+
+
+---
+
+<div id="formError" class="flex-col justify-center text-center min-h-96 hidden">
+    <div class="justify-center">
+        <Icon name="tabler:mood-sad" class="w-12 h-12 mx-auto"></Icon>
+    </div>
+    <div class="align-center mt-5">
+        <span class="block font-bold text-xl w-4/5 mx-auto">Sorry, but something went wrong on my end.</span>
+        <p class="mt-2">There was an issue with sending your message. Please try to send it again or reach out directly to email <a href="mailto:andi.poplas@gmail.com" class="color-primary hover:underline font-bold">andi.poplas@gmail.com</a>.</p>
+        <p class="text-xs text-gray-400">Error: <span id="error_code">Error</span></p>
+    </div>
+</div>

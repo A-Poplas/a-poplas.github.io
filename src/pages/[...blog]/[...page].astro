@@ -1,0 +1,66 @@
+---
+import type { InferGetStaticPropsType, GetStaticPaths } from 'astro';
+
+import Layout from '~/layouts/PageLayout.astro';
+import BlogList from '~/components/blog/List.astro';
+import Headline from '~/components/blog/Headline.astro';
+import Pagination from '~/components/blog/Pagination.astro';
+// import PostTags from "~/components/blog/Tags.astro";
+
+import { blogListRobots, getStaticPathsBlogList } from '~/utils/blog';
+//import Button from '~/components/ui/Button.astro';
+
+export const prerender = true;
+
+export const getStaticPaths = (async ({ paginate }) => {
+  return await getStaticPathsBlogList({ paginate });
+}) satisfies GetStaticPaths;
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>  & { category: string };
+
+const { page } = Astro.props as Props;
+
+const currentPage = page.currentPage ?? 1;
+
+// const allCategories = await findCategories();
+// const allTags = await findTags();
+
+const metadata = {
+  title: `Work${currentPage > 1 ? ` — Page ${currentPage}` : ''}`,
+  robots: {
+    index: blogListRobots?.index && currentPage === 1,
+    follow: blogListRobots?.follow,
+  },
+  openGraph: {
+    type: 'blog',
+  },
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="px-6 sm:px-6 pt-12 sm:pt-16 lg:pt-20 mx-auto max-w-7xl">
+    <Headline
+      subtitle="Various projects I have worked on."
+    >
+      Work
+    </Headline>
+    <div class="flex align-middle justify-center mb-8">
+      <ul class="w-fit">
+          <li class="bg-gray-100 dark:bg-slate-700 inline-block mr-2 rtl:mr-0 rtl:ml-2 mb-2 py-0.5 px-2 lowercase font-medium">
+            <a href="category/graphic-design" class="text-muted dark:text-slate-300 hover:text-primary dark:hover:text-gray-200">graphic-design</a>
+          </li>
+          <li class="bg-gray-100 dark:bg-slate-700 inline-block mr-2 rtl:mr-0 rtl:ml-2 mb-2 py-0.5 px-2 lowercase font-medium">
+            <a href="category/ui-ux" class="text-muted dark:text-slate-300 hover:text-primary dark:hover:text-gray-200">UI/UX</a>
+          </li>
+          <li class="bg-gray-100 dark:bg-slate-700 inline-block mr-2 rtl:mr-0 rtl:ml-2 mb-2 py-0.5 px-2 lowercase font-medium">
+            <a href="category/3d" class="text-muted dark:text-slate-300 hover:text-primary dark:hover:text-gray-200">3D</a>
+          </li>
+          <li class="bg-gray-100 dark:bg-slate-700 inline-block mr-2 rtl:mr-0 rtl:ml-2 mb-2 py-0.5 px-2 lowercase font-medium">
+            <a href="category/game-dev" class="text-muted dark:text-slate-300 hover:text-primary dark:hover:text-gray-200">Game Dev</a>
+          </li>
+      </ul>
+    </div>
+    <BlogList posts={page.data} />
+    <Pagination prevUrl={page.url.prev} nextUrl={page.url.next} />
+  </section>
+</Layout>

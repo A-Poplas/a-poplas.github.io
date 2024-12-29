@@ -1,0 +1,9 @@
+:is(:where(.dark) #landing_animation .animation_left_text){
+    fill:var(--aw-color-text-muted);
+}
+:is(:where(.dark) #landing_animation .animation_right_text){
+    fill:var(--aw-color-text-default);
+}
+span.text-handwritten{
+    color:var(--aw-color-primary);
+}
