@@ -12,13 +12,3 @@ url: https://www.behance.net/gallery/188799069/SSUM-Educational-Booklet
 urlIcon: tabler:brand-behance
 buttonText: Check out the project
 ---
-<style>
-  img{
-    margin:200px 0;
-  }
-</style>
-Description! 
-
-<h2 style="font-weight:bold;font-size:1.5rem;">Testing also HTML</h2>
-
-![Project 1](~/assets/images/animation_light.svg)

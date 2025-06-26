@@ -22,7 +22,7 @@
     "@fontsource-variable/inter": "^5.0.16",
     "@fontsource-variable/urbanist": "^5.0.19",
     "@iconify-json/ph": "^1.1.13",
-    "@iconify-json/solar": "^1.1.9",
+    "@iconify-json/solar": "^1.2.2",
     "@sendgrid/mail": "^8.1.0",
     "astro": "^4.0.6",
     "astro-icon": "1.0.0-next.2",
