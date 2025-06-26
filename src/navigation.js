@@ -43,7 +43,7 @@ export const headerData = {
           href: getPermalink('category/game-dev'),
         },
       ],
-    },*/
+    },
   ],
 };
 
